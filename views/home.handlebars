@@ -1,0 +1,37 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Hoàng vinh xin chào</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form method="get" action="/add"><input type="submit" value="ADD" class="btn btn-danger"
+                        style="margin: 10px;" />
+                </form>
+            </li>
+        </ul>
+    </div>
+</nav>
+<h3 class="text-center">Danh sách xe</h3>
+<table class="table  table-hover">
+    <tr>
+        <th>Tên</th>
+        <th>Năm</th>
+        <th>Giá</th>
+        <th style="width: 13%;"></th>
+    </tr>
+    {{#each cars}}
+    <tr>
+        <td>
+            <h4>{{this.ten}}</h4>
+        </td>
+        <td>{{this.nam}}</td>
+        <td><b style="color: red;">{{this.giaban}}</b></td>
+        <td><a href="/edit/{{this._id}}" class="btn btn-primary btn-sm">Edit</a> | <a href="/delete/{{this._id}}"
+                class="btn btn-danger" onclick="return confirm('Bạn có muốn xóa
+                không ?')">Delete</a>
+        </td>
+    </tr>
+    {{/each}}
+</table>
